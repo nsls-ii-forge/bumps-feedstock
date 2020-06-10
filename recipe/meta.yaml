@@ -1,0 +1,49 @@
+{% set name = "bumps" %}
+{% set version = "0.7.15" %}
+{% set sha256 = "4bcba438a51b8171c7776d28fc30b82c96a3d26e3817c22de8781baac26a1162" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+  patches:
+    - scripts.patch # use entry points instead of installing scripts
+
+build:
+  number: 0
+  noarch: python
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
+  entry_points:
+    - bumps = bumps.cli:main
+
+requirements:
+  host:
+    - python
+    - pip
+    - six
+  run:
+    - python
+    - numpy
+    - scipy
+    - six
+
+test:
+  imports:
+    - bumps
+    - bumps.dream
+    - bumps.gui
+    - bumps.mystic
+    - bumps.mystic.examples
+    - bumps.mystic.optimizer
+    - bumps.numdifftools
+
+about:
+  home: http://www.reflectometry.org/danse/software.html
+  license: PUBLIC-DOMAIN
+  license_file: LICENSE.txt
+  summary: Data fitting with bayesian uncertainty analysis
+  doc_url: https://bumps.readthedocs.io
+  dev_url: https://github.com/bumps/bumps
