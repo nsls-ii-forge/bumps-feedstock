@@ -1,6 +1,6 @@
 {% set name = "bumps" %}
-{% set version = "0.7.15" %}
-{% set sha256 = "4bcba438a51b8171c7776d28fc30b82c96a3d26e3817c22de8781baac26a1162" %}
+{% set version = "0.7.16" %}
+{% set sha256 = "3594452487b8404f1efaace9b70aefaeb345fa44dd74349f7829a61161d2f69a" %}
 
 package:
   name: {{ name|lower }}
