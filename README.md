@@ -5,7 +5,7 @@ Home: http://www.reflectometry.org/danse/software.html
 
 Package license: PUBLIC-DOMAIN
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Data fitting with bayesian uncertainty analysis
 
